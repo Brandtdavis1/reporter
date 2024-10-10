@@ -1,0 +1,13 @@
+API/xray/__pycache__/*
+API/jira/*
+API/jira/authenticator.py
+parsing/*
+feature_file/*
+data-visualization/generated_reports/*
+data-visualization/test-result-csv-files/*
+data-visualization/report.json
+jira_token.txt
+cred.json
+.DS_Store
+venv/
+*.json
