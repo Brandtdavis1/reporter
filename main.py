@@ -82,6 +82,7 @@ if args.import_results and not os.path.isfile(args.xray_report):
 
 print(args)
 
+# Main program
 authenticator = Authenticator(XRAY_SECRET_NAME)
 
 if not args.import_results:
@@ -103,6 +104,16 @@ if not args.import_results:
 if args.import_results:
     with open(args.xray_report, 'r', encoding='utf-8') as f:
         importer = Importer(authenticator.auth_headers)
-        print('Sending results to Jira...')
-        response = importer.import_results(f.read())
-        print(response.content)
+
+        import_confirmation = input("Are you sure you want to import the results to Jira? (y/n): ")
+        while import_confirmation.lower() != 'y' and import_confirmation.lower() != 'n':
+            import_confirmation = input("Invalid input. Please enter 'y' or 'n': ")
+
+        if import_confirmation.lower() == 'y':
+            print('Sending results to Jira...')
+            response = importer.import_results(f.read())
+            print(f'Response from Xray/Jira: {response.content}')
+
+        if import_confirmation.lower() == 'n':
+            print('Results not imported to Jira')
+
