@@ -22,10 +22,10 @@ class ReportParser:
 
     def set_report_file_path(self):
         """Construct the file path for the final report"""
-        current_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
         return (
             f'{self.report_destination_path}'
-            f'/{self.region}'
+            f'{self.region}'
             f'-{current_date}.json'
         )
 
@@ -54,7 +54,9 @@ class ReportParser:
         test_execution_data['tests'] = test_execution_results
         return test_execution_data
 
-    def write_report_to_file(self, report_data):
+    def write_report_to_file(self, report_data) -> str:
         """Write the final report to a file"""
         with open(self.xray_report_file, "w", encoding="utf-8") as f:
             json.dump(report_data, f, indent=2)
+
+        return self.xray_report_file
