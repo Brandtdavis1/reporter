@@ -9,7 +9,6 @@ from botocore.exceptions import ClientError
 
 def get_secret(secret_name: str):
 
-    # secret_name = "XrayApi"
     region_name = "us-east-1"
 
     # Create a Secrets Manager client
