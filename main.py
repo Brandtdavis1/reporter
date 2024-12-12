@@ -80,7 +80,8 @@ if args.import_results and not args.xray_report:
 if args.import_results and not os.path.isfile(args.xray_report):
     parser.error('The xray report file was not found at the specified path')
 
-print(args)
+# Print args: Uncomment for troubleshooting
+# print(args)
 
 # Main program
 authenticator = Authenticator(XRAY_SECRET_NAME)
