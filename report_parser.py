@@ -22,7 +22,7 @@ class ReportParser:
 
     def set_report_file_path(self):
         """Construct the file path for the final report"""
-        current_date = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+        current_date = datetime.datetime.now().strftime("%Y-%m-%dT%H%M%S")
         return (
             f'{self.report_destination_path}'
             f'{self.region}'
