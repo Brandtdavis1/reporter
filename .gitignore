@@ -11,3 +11,4 @@ cred.json
 .DS_Store
 venv/
 *.json
+**/**/__pycache__/*
